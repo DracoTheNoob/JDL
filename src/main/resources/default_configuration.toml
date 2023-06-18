@@ -1,0 +1,6 @@
+[bot]
+token = '' # Mandatory : Your bot token
+status = '' # Optional : The status of your bot (ONLINE / IDLE / DO_NOT_DISTURB / INVISIBLE / OFFLINE )
+activity = '' # Optional : Type of activity ( PLAYING / STREAMING / LISTENING / CUSTOM_STATUS / COMPETING ) + " " + text of activity
+prefix = '' # Mandatory : The prefix of raw text commands
+intents = [] # Mandatory : The string names of the intents that you bot enable
