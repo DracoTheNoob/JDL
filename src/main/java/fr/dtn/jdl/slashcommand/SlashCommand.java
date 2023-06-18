@@ -14,6 +14,7 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -94,7 +95,7 @@ public class SlashCommand {
         List<String> typesNames = toml.getList("parameters.type");
 
 
-        for(List<?> list : List.of(descriptions, required, autoCompletes, choice, typesNames)){
+        for(List<?> list : Arrays.asList(descriptions, required, autoCompletes, choice, typesNames)){
             if(list.size() != names.size()){
                 Log.error("Loading slash command '" + displayName + "' failed : Different options amount");
                 return;
@@ -112,7 +113,7 @@ public class SlashCommand {
 
         this.parameters = new ArrayList<>();
         for(int i = 0; i < names.size(); i++)
-            this.parameters.add(new Parameter(types.get(i), names.get(i), descriptions.get(i), required.get(i), autoCompletes.get(i), choice.get(i).toArray(String[]::new)));
+            this.parameters.add(new Parameter(types.get(i), names.get(i), descriptions.get(i), required.get(i), autoCompletes.get(i), choice.get(i).toArray(new String[0])));
 
         Log.info("Slash command '" + displayName + "' loaded successfully");
     }

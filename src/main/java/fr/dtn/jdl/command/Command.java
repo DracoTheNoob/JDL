@@ -51,7 +51,7 @@ public class Command{
         this.description = toml.getString("description");
         List<String> calls = new ArrayList<>();
         toml.getList("calls").forEach(call -> calls.add(call.toString()));
-        this.calls = calls.toArray(String[]::new);
+        this.calls = calls.toArray(new String[0]);
 
         List<Object> perms = toml.getList("permissions");
         this.permissions = new Permission[perms.size()];
